@@ -2,7 +2,7 @@
 
 /**
  * @file
- * Definition of DeimsContentPersonMigration.
+ * Definition of SevilletaContentPersonMigration.
  */
 
 class SevilletaContentPersonMigration extends DeimsContentPersonMigration {

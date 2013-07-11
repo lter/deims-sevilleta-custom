@@ -19,6 +19,7 @@ function sevilleta_migrate_api() {
  */
 function sevilleta_deims_migration_overrides() {
   return array(
+    'DeimsContentDataSet' => 'SevilletaContentDataSetMigration',
     'DeimsContentPerson' => 'SevilletaContentPersonMigration',
     'DeimsEntityOrganization' => 'SevilletaEntityOrganizationMigration',
   );
