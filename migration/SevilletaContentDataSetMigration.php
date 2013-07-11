@@ -16,6 +16,18 @@ class SevilletaContentDataSetMigration extends DeimsContentDataSetMigration {
       'field_dataset_sevid',
       'field_dataset_restricted',
     ));
+
+    // The 'Sevilleta LTER Information Manager' is node 1048 in the Drupal 6
+    // database. Add this as the default person to the metadata provider, and
+    // publisher fields.
+    $this->removeFieldMapping('field_person_metadata_provider');
+    $this->addFieldMapping('field_person_metadata_provider')
+      ->sourceMigration(array('DeimsContentPerson'))
+      ->defaultValue(1048);
+    $this->removeFieldMapping('field_person_publisher');
+    $this->addFieldMapping('field_person_publisher')
+      ->sourceMigration(array('DeimsContentPerson'))
+      ->defaultValue(1048);
   }
 
   public function prepareRow($row) {
