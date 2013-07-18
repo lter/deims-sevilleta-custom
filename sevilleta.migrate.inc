@@ -9,9 +9,21 @@
  * Implements hook_migrate_api().
  */
 function sevilleta_migrate_api() {
-  // This doesn't really have anything in it. This is mostly used so that
-  // Migrate will auto-re-register migrations when this module is enabled.
-  return array('api' => 2);
+  return array(
+    'api' => 2,
+    'migrations' => array(
+      'SevilletaTaxonomyCategories' => array(
+        'class_name' => 'DrupalTerm6Migration',
+        'description' => "Taxonomy migration for the 'Categories' vocabulary.",
+        'source_connection' => 'drupal6',
+        'source_version' => 6,
+        // @todo Make this vocabulary source ID automatic from the D6 database.
+        'source_vocabulary' => '5',
+        'destination_vocabulary' => 'categories',
+        'group' => DEIMS_D6_MIGRATION_GROUP,
+      ),
+    ),
+  );
 }
 
 /**
@@ -19,8 +31,8 @@ function sevilleta_migrate_api() {
  */
 function sevilleta_deims_migration_overrides() {
   return array(
-    'DeimsContentDataSet' => 'SevilletaContentDataSetMigration',
-    'DeimsContentPerson' => 'SevilletaContentPersonMigration',
-    'DeimsEntityOrganization' => 'SevilletaEntityOrganizationMigration',
+    'DeimsContentDataSet' => array('class_name' => 'SevilletaContentDataSetMigration'),
+    'DeimsContentPerson' => array('class_name' => 'SevilletaContentPersonMigration'),
+    'DeimsEntityOrganization' => array('class_name' => 'SevilletaEntityOrganizationMigration'),
   );
 }
