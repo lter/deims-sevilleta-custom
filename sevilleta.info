@@ -4,6 +4,7 @@ core = 7.x
 ;dependencies[] = deims
 files[] = migration/SevilletaContentDataSetMigration.php
 files[] = migration/SevilletaContentImageGalleryMigration.php
+files[] = migration/SevilletaContentMetCentralMigration.php
 files[] = migration/SevilletaContentPersonMigration.php
 files[] = migration/SevilletaEntityOrganizationMigration.php
 files[] = migration/SevilletaFileMigration.php
