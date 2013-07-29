@@ -13,7 +13,7 @@ class SevilletaContentPersonMigration extends DeimsContentPersonMigration {
     // The field_person_uid is actually
     $this->removeFieldMapping('field_user_account');
     $this->addFieldMapping('field_user_account', 'field_person_user')
-      ->sourceMigration(array('Users'));
+      ->sourceMigration('Users');
 
     // field_person_pubs does not exist
     $this->removeFieldMapping(NULL, 'field_person_pubs');

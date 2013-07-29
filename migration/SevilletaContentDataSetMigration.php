@@ -22,11 +22,11 @@ class SevilletaContentDataSetMigration extends DeimsContentDataSetMigration {
     // publisher fields.
     $this->removeFieldMapping('field_person_metadata_provider');
     $this->addFieldMapping('field_person_metadata_provider')
-      ->sourceMigration(array('DeimsContentPerson'))
+      ->sourceMigration('DeimsContentPerson')
       ->defaultValue(1048);
     $this->removeFieldMapping('field_person_publisher');
     $this->addFieldMapping('field_person_publisher')
-      ->sourceMigration(array('DeimsContentPerson'))
+      ->sourceMigration('DeimsContentPerson')
       ->defaultValue(1048);
   }
 

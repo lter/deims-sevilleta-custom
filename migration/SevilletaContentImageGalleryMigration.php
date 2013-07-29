@@ -25,12 +25,10 @@ class SevilletaContentImageGalleryMigration extends DrupalNode6Migration {
     parent::__construct($arguments);
 
     $this->addFieldMapping('field_images', 'field_images')
-      ->sourceMigration(array('DeimsFile'))
-      ->arguments(array(
-        'file_class' => 'MigrateFileFid',
-        'preserve_files' => TRUE,
-      ))
+      ->sourceMigration('DeimsFile')
       ->description('Handled in prepareRow().');
+    $this->addFieldMapping('field_images:file_class')->defaultValue('MigrateFileFid');
+    $this->addFieldMapping('field_images:preserve_files')->defaultValue(TRUE);
 
     $this->addUnmigratedSources(array(
       'field_image_gallery_highlight',
@@ -40,12 +38,10 @@ class SevilletaContentImageGalleryMigration extends DrupalNode6Migration {
     ));
 
     $this->addUnmigratedDestinations(array(
-      'field_images:file_class',
       'field_images:language',
       'field_images:destination_dir',
       'field_images:destination_file',
       'field_images:file_replace',
-      'field_images:preserve_files',
       'field_images:source_dir',
       'field_images:urlencode',
       'field_images:alt',
