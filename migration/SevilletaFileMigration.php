@@ -11,6 +11,7 @@ class SevilletaFileMigration extends DeimsFileMigration {
     // Add data for scientific images.
     $connection = Database::getConnection('default', $this->sourceConnection);
     $query = $connection->select('node', 'n');
+    $query->condition('n.type', 'scientific_image');
     $query->join('node_revisions', 'nr', 'n.vid = nr.vid');
     $query->fields('nr', array('title', 'body', 'format'));
     $query->join('content_type_scientific_image', 'ctsi', 'n.vid = ctsi.vid');

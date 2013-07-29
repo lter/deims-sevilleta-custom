@@ -9,9 +9,12 @@
  * Implements hook_migrate_api().
  */
 function sevilleta_migrate_api() {
-  return array(
+  $info = array(
     'api' => 2,
     'migrations' => array(
+      'SevilletaContentImageGallery' => array(
+        'class_name' => 'SevilletaContentImageGalleryMigration',
+      ),
       'SevilletaTaxonomyCategories' => array(
         'class_name' => 'DrupalTerm6Migration',
         'description' => "Taxonomy migration for the 'Categories' vocabulary.",
@@ -20,10 +23,15 @@ function sevilleta_migrate_api() {
         // @todo Make this vocabulary source ID automatic from the D6 database.
         'source_vocabulary' => '5',
         'destination_vocabulary' => 'categories',
-        'group' => DEIMS_D6_MIGRATION_GROUP,
       ),
     ),
   );
+
+  foreach ($info['migrations'] as &$migration) {
+    $migration['group_name'] = DEIMS_D6_MIGRATION_GROUP;
+  }
+
+  return $info;
 }
 
 /**
