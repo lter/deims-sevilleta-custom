@@ -5,3 +5,4 @@ core = 7.x
 files[] = migration/SevilletaContentDataSetMigration.php
 files[] = migration/SevilletaContentPersonMigration.php
 files[] = migration/SevilletaEntityOrganizationMigration.php
+files[] = migration/SevilletaFileMigration.php
