@@ -6,6 +6,10 @@
  */
 
 class SevilletaContentImageGalleryMigration extends DrupalNode6Migration {
+  protected $sourceFields = array(
+    'field_images' => 'Images - provided in prepare()',
+  );
+
   protected $dependencies = array('DeimsFile');
 
   public function __construct(array $arguments) {
@@ -28,6 +32,13 @@ class SevilletaContentImageGalleryMigration extends DrupalNode6Migration {
       ))
       ->description('Handled in prepareRow().');
 
+    $this->addUnmigratedSources(array(
+      'field_image_gallery_highlight',
+      'field_image_gallery_highlight:list',
+      'field_image_gallery_highlight_data',
+      '5', // Categories vocabulary.
+    ));
+
     $this->addUnmigratedDestinations(array(
       'field_images:file_class',
       'field_images:language',
@@ -39,6 +50,10 @@ class SevilletaContentImageGalleryMigration extends DrupalNode6Migration {
       'field_images:urlencode',
       'field_images:alt',
       'field_images:title',
+      'field_keywords',
+      'field_keywords:source_type',
+      'field_keywords:create_term',
+      'field_keywords:ignore_case',
     ));
   }
 
