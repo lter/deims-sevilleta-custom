@@ -5,7 +5,7 @@
  * Definition of SevilletaFileMigration.
  */
 
-class SevilletaContentDataSetMigration extends DeimsFileMigration {
+class SevilletaFileMigration extends DeimsFileMigration {
 
   public function prepare($file, $row) {
     // Add data for scientific images.
