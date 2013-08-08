@@ -55,11 +55,12 @@ class SevilletaContentPersonMigration extends DeimsContentPersonMigration {
     // and link value.
     if (!empty($row->{'field_person_organization:title'})) {
       $query = new EntityFieldQuery();
-      $query->entityCondition('entity_type', 'organization');
+      $query->entityCondition('entity_type', 'node');
+      $query->entityCondition('bundle', 'organization');
       $query->propertyCondition('title', $row->{'field_person_organization:title'});
       $results = $query->execute();
-      if (!empty($results['organization'])) {
-        $field_values[] = array('target_id' => reset($results['organization'])->id);
+      if (!empty($results['node'])) {
+        $field_values[] = array('target_id' => reset($results['node'])->nid);
       }
     }
 
