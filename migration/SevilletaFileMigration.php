@@ -8,6 +8,8 @@
 class SevilletaFileMigration extends DeimsFileMigration {
 
   public function prepare($file, $row) {
+    parent::prepare($file, $row);
+
     // Add data for scientific images.
     $connection = Database::getConnection('default', $this->sourceConnection);
     $query = $connection->select('node', 'n');
