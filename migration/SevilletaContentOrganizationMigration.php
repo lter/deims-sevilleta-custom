@@ -2,10 +2,10 @@
 
 /**
  * @file
- * Definition of SevilletaEntityOrganizationMigration.
+ * Definition of SevilletaContentOrganizationMigration.
  */
 
-class SevilletaEntityOrganizationMigration extends DeimsEntityOrganizationMigration {
+class SevilletaContentOrganizationMigration extends DeimsContentOrganizationMigration {
 
   public function __construct(array $arguments) {
     parent::__construct($arguments);
@@ -22,5 +22,6 @@ class SevilletaEntityOrganizationMigration extends DeimsEntityOrganizationMigrat
     // Remap the organization title to the link field's title value.
     $this->removeFieldMapping('title');
     $this->addFieldMapping('title', 'field_person_organization_title');
+    $this->addFieldMapping('field_url', 'field_person_organization_url');
   }
 }
