@@ -30,11 +30,15 @@ class SevilletaContentImageGalleryMigration extends DrupalNode6Migration {
     $this->addFieldMapping('field_images:file_class')->defaultValue('MigrateFileFid');
     $this->addFieldMapping('field_images:preserve_files')->defaultValue(TRUE);
 
+    $this->addFieldMapping('field_keywords', '5')
+      ->sourceMigration('SevilletaTaxonomyCategories');
+    $this->addFieldMapping('field_keywords:source_type')
+      ->defaultValue('tid');
+
     $this->addUnmigratedSources(array(
       'field_image_gallery_highlight',
       'field_image_gallery_highlight:list',
       'field_image_gallery_highlight_data',
-      '5', // Categories vocabulary.
     ));
 
     $this->addUnmigratedDestinations(array(
@@ -46,8 +50,6 @@ class SevilletaContentImageGalleryMigration extends DrupalNode6Migration {
       'field_images:urlencode',
       'field_images:alt',
       'field_images:title',
-      'field_keywords',
-      'field_keywords:source_type',
       'field_keywords:create_term',
       'field_keywords:ignore_case',
     ));
