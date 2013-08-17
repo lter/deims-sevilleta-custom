@@ -29,16 +29,17 @@ function sevilleta_install() {
     taxonomy_vocabulary_save($vocabulary);
 
 
-  //  Create the Image Galleries vocabulary.
-  //  $description = st('Use tags to group photos on similar topics into categories.');
-  //  $help = st('Enter a comma-separated list of words to describe your content.');
-  //  $vocabulary = (object) array(
-  //    'name' => st('Image Galleries'),
-  //    'description' => $description,
-  //    'machine_name' => 'image_galleries',
-  //    'help' => $help,
-  //
-  //  );
-  //  taxonomy_vocabulary_save($vocabulary);
+  //  Create the Spatial Data vocabulary.
+    $description = st('Use tags to group spatial data on similar topics into categories.');
+    $help = st('Enter a comma-separated list of words to describe your content.');
+    $vocabulary = (object) array(
+      'name' => st('Spatial Data'),
+      'description' => $description,
+      'machine_name' => 'spatial_data',
+      'help' => $help,
+  
+    );
+    taxonomy_vocabulary_save($vocabulary);
+
 
 }

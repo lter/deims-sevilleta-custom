@@ -31,6 +31,7 @@ function sevilleta_migrate_api() {
        1,9  reserch project  9 lter controlled vocab.
         1   research site   11 Spatial Data
         5   SCI image
+       11   spatial_data
         3   story
       */
 
@@ -64,16 +65,16 @@ function sevilleta_migrate_api() {
         'destination_vocabulary' => 'tags',
       ),
 
-    /*  'SevilletaTaxonomyImageGalleries' => array(
+      'SevilletaTaxonomySpatialData' => array(
          'class_name' => 'DrupalTerm6Migration',
-         'description' => "Taxonomy migration for the 'Image Galleries' vocabulary.",
+         'description' => "Taxonomy migration for the 'Spatial Data' vocabulary.",
          'source_connection' => 'drupal6',
          'source_version' => 6,
       // @todo Make this vocabulary source ID automatic from the D6 database.
-         'source_vocabulary' => '10',
-         'destination_vocabulary' => 'image_galleries',
-         ),
-     */
+         'source_vocabulary' => '11',
+         'destination_vocabulary' => 'spatial_data',
+       ),
+     
     ),
   );
 
