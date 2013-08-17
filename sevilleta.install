@@ -15,4 +15,30 @@ function sevilleta_install() {
 
   );
   taxonomy_vocabulary_save($vocabulary);
+
+   // Create the downloads vocabulary.
+    $description = st('Use tags to group documents on similar topics into categories.');
+    $help = st('Enter a comma-separated list of words to describe your content.');
+    $vocabulary = (object) array(
+      'name' => st('Downloads'),
+      'description' => $description,
+      'machine_name' => 'downloads',
+      'help' => $help,
+
+    );
+    taxonomy_vocabulary_save($vocabulary);
+
+
+  //  Create the Image Galleries vocabulary.
+  //  $description = st('Use tags to group photos on similar topics into categories.');
+  //  $help = st('Enter a comma-separated list of words to describe your content.');
+  //  $vocabulary = (object) array(
+  //    'name' => st('Image Galleries'),
+  //    'description' => $description,
+  //    'machine_name' => 'image_galleries',
+  //    'help' => $help,
+  //
+  //  );
+  //  taxonomy_vocabulary_save($vocabulary);
+
 }
