@@ -28,7 +28,6 @@ function sevilleta_install() {
     );
     taxonomy_vocabulary_save($vocabulary);
 
-
   //  Create the Spatial Data vocabulary.
     $description = st('Use tags to group spatial data on similar topics into categories.');
     $help = st('Enter a comma-separated list of words to describe your content.');
@@ -40,6 +39,5 @@ function sevilleta_install() {
   
     );
     taxonomy_vocabulary_save($vocabulary);
-
 
 }
