@@ -45,26 +45,6 @@ function sevilleta_migrate_api() {
         'destination_vocabulary' => 'categories',
       ),
 
-      'SevilletaTaxonomyDownloads' => array(
-        'class_name' => 'DrupalTerm6Migration',
-        'description' => "Taxonomy migration for the 'Downloads' vocabulary.",
-        'source_connection' => 'drupal6',
-        'source_version' => 6,
-        // @todo Make this vocabulary source ID automatic from the D6 database.
-        'source_vocabulary' => '2',
-        'destination_vocabulary' => 'downloads',
-      ),
-
-      'SevilletaTaxonomyArticles' => array(
-        'class_name' => 'DrupalTerm6Migration',
-        'description' => "Taxonomy migration for the 'Articles' vocabulary.",
-        'source_connection' => 'drupal6',
-        'source_version' => 6,
-         // @todo Make this vocabulary source ID automatic from the D6 database.
-        'source_vocabulary' => '3',
-        'destination_vocabulary' => 'tags',
-      ),
-
       'SevilletaTaxonomySpatialData' => array(
          'class_name' => 'DrupalTerm6Migration',
          'description' => "Taxonomy migration for the 'Spatial Data' vocabulary.",
@@ -94,7 +74,5 @@ function sevilleta_deims_migration_overrides() {
     'DeimsContentOrganization' => array('class_name' => 'SevilletaContentOrganizationMigration'),
     'DeimsContentPerson' => array('class_name' => 'SevilletaContentPersonMigration'),
     'DeimsFile' => array('class_name' => 'SevilletaFileMigration'),
-    'DeimsContentPage' => array('class_name' => 'SevilletaPageMigration'),
-   // 'DeimsContentStory' => array('class_name' => 'SevilletaStoryMigration'),
   );
 }
