@@ -8,5 +8,4 @@ files[] = migration/SevilletaContentMetCentralMigration.php
 files[] = migration/SevilletaContentOrganizationMigration.php
 files[] = migration/SevilletaContentPersonMigration.php
 files[] = migration/SevilletaFileMigration.php
-files[] = migration/SevilletaPageMigration.php
-files[] = migration/SevilletaStoryMigration.php
+files[] = migration/SevilletaContentSpatialDataMigration.php
