@@ -2,10 +2,10 @@
 
 /**
 * @file
-* Definition of SevilletaStoryMigration.
+* Definition of SevilletaContentSpatialDataMigration.
 */
 
-class SevilletaStoryMigration extends DrupalNode6Migration {
+class SevilletaContentSpatialDataMigration extends DrupalNode6Migration {
 
   protected $dependencies = array();
 
@@ -20,6 +20,34 @@ class SevilletaStoryMigration extends DrupalNode6Migration {
     );
 
     parent::__construct($arguments);
+
+    $this->addFieldMapping('field_spatialdata_kml_file', 'field_spatialdata_kml')
+      ->sourceMigration('DeimsFile')
+      ->arguments(array(
+          'file_class' => 'MigrateFileFid',
+          'preserve_files' => TRUE,
+      ));
+
+    $this->addFieldMapping('field_spatialdata_metadata_file', 'field_spatialdata_metadata')
+      ->sourceMigration('DeimsFile')
+      ->arguments(array(
+          'file_class' => 'MigrateFileFid',
+          'preserve_files' => TRUE,
+      ));
+
+
+    $this->addFieldMapping('field_spatialdata_shapefile_file', 'field_spatialdata_shapefile')
+      ->sourceMigration('DeimsFile')
+      ->arguments(array(
+          'file_class' => 'MigrateFileFid',
+          'preserve_files' => TRUE,
+      ));
+
+
+    $this->addFieldMapping('field_spatialdata_keywords', '11')
+       ->sourceMigration('SevilletaTaxonomySpatialData');
+      $this->addFieldMapping('field_spatialdata_keywords:source_type')  
+            ->defaultValue('tid');
   }
 
   public function prepareRow($row) {
@@ -32,7 +60,4 @@ class SevilletaStoryMigration extends DrupalNode6Migration {
     EntityHelper::removeEmptyFieldValues('node', $node);
   }
    
-   $this->addFieldMapping('field_sev_tags', '3')
-       ->sourceMigration('SevilletaTaxonomyArticles');
-       ->arguments(array('source_type' => 'tid'));
 }
