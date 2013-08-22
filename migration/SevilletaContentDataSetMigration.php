@@ -34,7 +34,7 @@ class SevilletaContentDataSetMigration extends DeimsContentDataSetMigration {
     $this->addFieldMapping('field_core_areas:source_type')
       ->defaultValue('tid');
     $this->addFieldMapping('field_keywords', '9')
-      ->sourceMigration('DeimsTaxonomyCoreAreas');
+      ->sourceMigration('DeimsTaxonomyLTERControlled');
     $this->addFieldMapping('field_keywords:source_type')
       ->defaultValue('tid');
   }
