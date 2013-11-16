@@ -18,6 +18,9 @@ function sevilleta_migrate_api() {
       'SevilletaContentMetCentral' => array(
         'class_name' => 'SevilletaContentMetCentralMigration',
       ),
+      'SevilletaContentFAQ' => array(
+        'class_name' => 'SevilletaContentFAQMigration',
+      ),
       'SevilletaTaxonomyCategories' => array(
         'class_name' => 'DrupalTerm6Migration',
         'description' => "Taxonomy migration for the 'Categories' vocabulary.",

@@ -6,6 +6,7 @@ files[] = migration/SevilletaContentDataSetMigration.php
 files[] = migration/SevilletaContentDataFileMigration.php
 files[] = migration/SevilletaContentImageGalleryMigration.php
 files[] = migration/SevilletaContentMetCentralMigration.php
+files[] = migration/SevilletaContentFAQMigration.php
 files[] = migration/SevilletaContentOrganizationMigration.php
 files[] = migration/SevilletaContentPersonMigration.php
 files[] = migration/SevilletaFileMigration.php
