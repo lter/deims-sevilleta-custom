@@ -21,6 +21,17 @@ function sevilleta_migrate_api() {
       'SevilletaContentFAQ' => array(
         'class_name' => 'SevilletaContentFAQMigration',
       ),
+      // Migrates the "SEV D6" taxonomy article" to the D7 "section" container.
+      'SevilletaTaxonomyArticles' => array(
+        'class_name' => 'DrupalTerm6Migration',
+        'description' => "Taxonomy migration for the 'Articles' vocabulary.",
+        'source_connection' => 'drupal6',
+        'source_version' => 6,
+         // @todo Make this vocabulary source ID automatic from the D6 database.
+        'source_vocabulary' => '3',
+        'destination_vocabulary' => 'section',
+      ),
+      // this go into catgories
       'SevilletaTaxonomyCategories' => array(
         'class_name' => 'DrupalTerm6Migration',
         'description' => "Taxonomy migration for the 'Categories' vocabulary.",
