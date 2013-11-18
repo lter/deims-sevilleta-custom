@@ -30,6 +30,15 @@ function sevilleta_migrate_api() {
         'source_vocabulary' => '5',
         'destination_vocabulary' => 'categories',
       ),
+      'SevilletaTaxonomySpatialData' => array(
+         'class_name' => 'DrupalTerm6Migration',
+         'description' => "Taxonomy migration for the 'Spatial Data' vocabulary.",
+         'source_connection' => 'drupal6',
+         'source_version' => 6,
+      // @todo Make this vocabulary source ID automatic from the D6 database.
+         'source_vocabulary' => '11',
+         'destination_vocabulary' => 'spatial_data',
+       ),  
     ),
   );
 
