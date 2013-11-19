@@ -16,7 +16,7 @@ class SevilletaContentStoryMigration extends DeimsContentStoryMigration {
 //    DEIMS D7 Vocabulary "Section" already.
 
         $this->addFieldMapping('field_section', '3')
-          ->sourceMigration('SevilletaTaxonomyArticles')
+          ->sourceMigration('SevilletaTaxonomyArticles');
         $this->addFieldMapping('field_section:source_type')
           ->defaultValue('tid');
        
