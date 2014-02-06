@@ -1,27 +1,60 @@
+# DEIMS Sevilleta LTER Customizations #
 
-deims-sevilleta-custom
-======================
+Repo name : deims-sevilleta-custom
+A module with customizations for the Sevilleta LTER DEIMS instance.
 
 The module Sevilleta is used to ensure the Sevilleta-specific customizations are
-migrated to DEIMS D7.  Here are the code that extends the DEIMS D6 migration templates.
+migrated to DEIMS D7.  In this module, there is code that extends the DEIMS D6 
+migration templates. The code also expands the DEIMS core infrastructure, adding
+content types and vocabularies to accomodate Sevilleta LTER specific configurations.
 
-Create a folder named "modules" under sites/default.
+## Instructions ##
 
-Now, under this folder, create another folder named "sevilleta" - you see now a 
-folder sevilleta under sites/default/modules in your DEIMS install.
+Clone 
+* `git clone --branch 7.x-1.x git@github.com:lter/deims-sevilleta-custom.git` 
 
-Download this module from: 
+Or download this module from: 
 
-https://github.com/lter/deims-sevilleta-custom/archive/7.x-1.x.zip
+* `https://github.com/lter/deims-sevilleta-custom/archive/7.x-1.x.zip`
 
-Extract the contents, and copy the contents of the "zip" file into the 'sevilleta' folder 
-we just created.
+Create a folder named "modules" under sites/default (unless you have already made it)
 
-Now visit your 'admin/modules' screen and enable the new "sevilleta" module. For this
-(and the DEIMS D6 migration) to work, remember you need to have a  settings.local.php 
-file in the same place you have the settings.php file.
+Under the sites/default/modules, create another folder named _sevilleta_ 
 
-THat file has a database connector to the DEIMS D6 database.
+Copy the contents of the cloned repo into the "sevilleta" folder you just made
 
-Before you do any migration, make sure your Sev. field customizations are appropriate,
-namely, the 'photo caption' is long text, and any other things.
+Or, if you downloaded the repository (instead of using `git clone`) extract and copy the 
+contents of the _zip_ file into the _sevilleta_ folder we just created.
+
+Using your browser visit your modules admin page, something like this URL 
+`http://example.com/admin/modules`
+
+In that page, find and enable the new _sevilleta_ module. Mark the checkbox to 
+the side, and hit _Save_.  If you prefer speed, use drush to enable the module
+* `drush en sevilleta`
+
+###  For the custom migrations to work ###
+This applies to the DEIMS D6 migration and customizations. You need 
+to have a _settings.local.php_ file in the same place you have the _settings.php_ file.
+(that is, _sites/default_).
+
+The _settings.local.php_ file has a database connector to the DEIMS D6 database. Here is
+an example
+
+* `<?php `
+* ` $databases['drupal6']['default'] = array(`
+* `  'database' => 'deims-drupal6-sevilleta',`
+* `  'username' => 'deims-mysql-user',`
+* `  'password' => 'deims-mysql-user-password',`
+* `  'host' => 'localhost',`
+* `  'port' => '',`
+* `  'driver' => 'mysql',`
+* `  'prefix' => '',`
+* ` );`
+
+
+For more documentation on this customizations visit the blogs at http://lno.lternet.edu/blog/6 
+and look for DEIMS Migrations
+
+For DEIMS help, visit the DEIMS project page at drupal.org, read the papers in databits.lternet.edu
+or contact us.
