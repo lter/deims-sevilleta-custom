@@ -17,10 +17,10 @@ class SevilletaContentDataFileMigration extends DeimsContentDataFileMigration {
     // Fix double/single quotes in SEV.
 
     switch ($row->field_quote_character) {
-      case 'double quotes':
+      case 'double quote':
         $row->field_quote_character = '"';
         break;
-      case 'single quotes':
+      case 'single quote':
         $row->field_quote_character = "'";
         break;
     }
