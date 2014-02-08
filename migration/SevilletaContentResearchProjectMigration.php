@@ -76,7 +76,7 @@ class SevilletaContentResearchProjectMigration extends DeimsContentResearchProje
 *     $this->addFieldMapping('field_images:preserve_files')->defaultValue(TRUE);
 **/
 
-    $this->addFieldMapping('field_ongoing', 'field_research_project_current');
+    $this->addFieldMapping('field_ongoing', 'field_research_project_current')
       ->description('Text to Boolean Handled in prepareRow().');
       
     // entityreference, people
