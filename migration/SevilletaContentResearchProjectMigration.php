@@ -118,7 +118,7 @@ class SevilletaContentResearchProjectMigration extends DeimsContentResearchProje
   public function prepareRow($row) {
     parent::prepareRow($row);
     if (!empty($row->{'field_research_project_current'})) {
-      $row->field_research_project_current='TRUE'; // check  
+      $row->field_research_project_current = TRUE; // check  
     }
 
   }
