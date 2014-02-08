@@ -93,7 +93,7 @@ class SevilletaContentResearchProjectMigration extends DeimsContentResearchProje
     $this->addFieldMapping('field_related_links:title','field_research_project_links:title');
 
     //keywords
-    this->addFieldMapping('field_core_areas', '1')
+    $this->addFieldMapping('field_core_areas', '1')
       ->sourceMigration('DeimsTaxonomyCoreAreas');
     $this->addFieldMapping('field_core_areas:source_type')
       ->defaultValue('tid');
@@ -118,7 +118,7 @@ class SevilletaContentResearchProjectMigration extends DeimsContentResearchProje
   public function prepareRow($row) {
     parent::prepareRow($row);
     if (!empty($row->{'field_research_project_current'})) {
-      field_research_project_current='TRUE'; // check  
+      $row->field_research_project_current='TRUE'; // check  
     }
 
   }
