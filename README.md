@@ -29,9 +29,20 @@ contents of the _zip_ file into the _sevilleta_ folder we just created.
 Using your browser visit your modules admin page, something like this URL 
 `http://example.com/admin/modules`
 
-In that page, find and enable the new _sevilleta_ module. Mark the checkbox to 
-the side, and hit _Save_.  If you prefer speed, use drush to enable the module
-* `drush en sevilleta`
+In that page, find and enable the new _sevilleta_ modules. Mark the checkbox to 
+the side, and hit _Save_. 
+
+If you prefer speed, use drush to enable the module(s)
+* `drush en sevilleta sevilleta_spatial_data`
+
+Some of this migrations required additions (spatial data) and changes to the Sevilleta 
+DEIMS content types (research project). Ensure that those features changes are taking 
+effect, by deleting the existing feature and placing the overriden feature, or simply 
+moving the overriding DEIMS features (such as folder "deims_research_project") 
+into the DEIMS features folder. If you are in your Drupal root:
+
+* `mv sites/default/modules/sevilleta/features/deims_research_project profiles/deims/modules/features`
+
 
 ###  For the custom migrations to work ###
 This applies to the DEIMS D6 migration and customizations. You need 
