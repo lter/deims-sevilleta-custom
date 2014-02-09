@@ -44,13 +44,31 @@ class SevilletaContentResearchProjectMigration extends DeimsContentResearchProje
 *   field_research_project_gallery	Gallery
 **/
 
+  //related sites : depend on new content type and Research site migration
+  $this->addFieldMapping('field_res_proj_rel_sites_ref','field_research_project_sites')
+    ->sourceMigration('DeimsContentResearchSite');
 
+  //related data: depend on new content type and migrated Data Sets. (do this last!)
+  //
+  $this->addFieldMapping('field_res_proj_rel_data_ref','field_research_project_data')
+    ->sourceMigration('DeimsContentDataSet');
+
+
+  // top-photo migration
    $this->addFieldMapping('field_images','field_research_project_photo')
      ->sourceMigration('DeimsFile');
 //     ->sourceMigration('DeimsFile')
 //     ->description('Handled in prepareRow().');
    $this->addFieldMapping('field_images:file_class')->defaultValue('MigrateFileFid');
    $this->addFieldMapping('field_images:preserve_files')->defaultValue(TRUE);
+
+  // bottom-photo migration, needs new featurized content type
+   $this->addFieldMapping('field_image_bottom','field_research_proj_figure')
+     ->sourceMigration('DeimsFile');
+//     ->sourceMigration('DeimsFile')
+//     ->description('Handled in prepareRow().');
+   $this->addFieldMapping('field_image_bottom:file_class')->defaultValue('MigrateFileFid');
+   $this->addFieldMapping('field_image_bottom:preserve_files')->defaultValue(TRUE);
 
    //unsure whether this is OK.
    $this->addFieldMapping('field_images:title','field_research_proj_photos_txt');
@@ -117,10 +135,15 @@ class SevilletaContentResearchProjectMigration extends DeimsContentResearchProje
 
   public function prepareRow($row) {
     parent::prepareRow($row);
-    if (!empty($row->{'field_research_project_current'})) {
-      $row->field_research_project_current = TRUE; // check  
-    }
 
+    switch ($row->field_research_project_current) {
+      case 'Yes':
+        $row->field_research_project_current = 1;
+        break;
+      case 'No':
+        $row->field_research_project_current = 0;
+        break;
+    }
   }
 
   public function prepare($node, $row) {
