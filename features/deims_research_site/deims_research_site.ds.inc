@@ -36,6 +36,11 @@ function deims_research_site_ds_field_settings_info() {
       'weight' => '1',
       'label' => 'hidden',
       'format' => 'default',
+      'formatter_settings' => array(
+        'link' => '1',
+        'wrapper' => 'h2',
+        'class' => '',
+      ),
     ),
   );
   $export['node|research_site|teaser'] = $ds_fieldsetting;

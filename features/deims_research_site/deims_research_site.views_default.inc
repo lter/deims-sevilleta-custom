@@ -32,6 +32,7 @@ function deims_research_site_views_default_views() {
   $handler->display->display_options['pager']['type'] = 'full';
   $handler->display->display_options['pager']['options']['items_per_page'] = '10';
   $handler->display->display_options['style_plugin'] = 'default';
+  $handler->display->display_options['style_options']['default_row_class'] = FALSE;
   $handler->display->display_options['row_plugin'] = 'node';
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
@@ -77,6 +78,13 @@ function deims_research_site_views_default_views() {
     3 => 0,
   );
   $handler->display->display_options['filters']['keys']['remove_score'] = TRUE;
+  /* Filter criterion: Content: Is This a Core Site? (field_is_core_site) */
+  $handler->display->display_options['filters']['field_is_core_site_value']['id'] = 'field_is_core_site_value';
+  $handler->display->display_options['filters']['field_is_core_site_value']['table'] = 'field_data_field_is_core_site';
+  $handler->display->display_options['filters']['field_is_core_site_value']['field'] = 'field_is_core_site_value';
+  $handler->display->display_options['filters']['field_is_core_site_value']['value'] = array(
+    1 => '1',
+  );
 
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'page');
@@ -87,6 +95,47 @@ function deims_research_site_views_default_views() {
   $handler->display->display_options['menu']['name'] = 'main-menu';
   $handler->display->display_options['menu']['context'] = 0;
   $handler->display->display_options['menu']['context_only_inline'] = 0;
+
+  /* Display: All Research Sites, Locations and Plots */
+  $handler = $view->new_display('page', 'All Research Sites, Locations and Plots', 'page_1');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = 'All Research Sites and Locations';
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filter criterion: Content: Published */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: Content: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'research_site' => 'research_site',
+  );
+  /* Filter criterion: Search: Search Terms */
+  $handler->display->display_options['filters']['keys']['id'] = 'keys';
+  $handler->display->display_options['filters']['keys']['table'] = 'search_index';
+  $handler->display->display_options['filters']['keys']['field'] = 'keys';
+  $handler->display->display_options['filters']['keys']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['keys']['expose']['operator_id'] = 'keys_op';
+  $handler->display->display_options['filters']['keys']['expose']['label'] = 'Search keywords';
+  $handler->display->display_options['filters']['keys']['expose']['operator'] = 'keys_op';
+  $handler->display->display_options['filters']['keys']['expose']['identifier'] = 'keys';
+  $handler->display->display_options['filters']['keys']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    6 => 0,
+    4 => 0,
+    5 => 0,
+    7 => 0,
+    3 => 0,
+  );
+  $handler->display->display_options['filters']['keys']['remove_score'] = TRUE;
+  $handler->display->display_options['path'] = 'about/all_research_sites';
   $export['research_sites'] = $view;
 
   return $export;

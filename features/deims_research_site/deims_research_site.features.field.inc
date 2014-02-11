@@ -289,8 +289,10 @@ function deims_research_site_field_default_fields() {
         'teaser' => array(
           'label' => 'hidden',
           'module' => 'text',
-          'settings' => array(),
-          'type' => 'text_default',
+          'settings' => array(
+            'trim_length' => '600',
+          ),
+          'type' => 'text_trimmed',
           'weight' => '2',
         ),
       ),
@@ -627,7 +629,7 @@ function deims_research_site_field_default_fields() {
         'active' => 1,
         'module' => 'options',
         'settings' => array(
-          'display_label' => 0,
+          'display_label' => 1,
         ),
         'type' => 'options_onoff',
         'weight' => '2',
