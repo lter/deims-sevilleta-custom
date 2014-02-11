@@ -8,6 +8,10 @@ migrated to DEIMS D7.  In this module, there is code that extends the DEIMS D6
 migration templates. The code also expands the DEIMS core infrastructure, adding
 content types and vocabularies to accomodate Sevilleta LTER specific configurations.
 
+Note, Some views are not installed by default using the method described below.
+Specifically, the _Met-central_ view, inside the views-export folder, is standalone.
+Please use the _Views-UI_ to import the php code posted here.
+
 ## Instructions ##
 
 Clone 
