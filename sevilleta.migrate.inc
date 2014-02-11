@@ -72,5 +72,6 @@ function sevilleta_deims_migration_overrides() {
     'DeimsFile' => array('class_name' => 'SevilletaFileMigration'),
     'DeimsContentStory' => array('class_name' => 'SevilletaContentStoryMigration'),
     'DeimsContentResearchProject' => array('class_name' => 'SevilletaContentResearchProjectMigration'),
+    'DeimsContentResearchSite' => array('class_name' => 'SevilletaContentResearchSiteMigration'),
   );
 }
