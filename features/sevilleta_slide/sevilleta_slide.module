@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Sevilleta Slide feature.
+ */
+
+include_once 'sevilleta_slide.features.inc';

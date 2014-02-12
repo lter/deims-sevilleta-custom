@@ -14,3 +14,4 @@ files[] = migration/SevilletaContentSpatialDataMigration.php
 files[] = migration/SevilletaContentStoryMigration.php
 files[] = migration/SevilletaContentResearchProjectMigration.php
 files[] = migration/SevilletaContentResearchSiteMigration.php
+files[] = migration/SevilletaContentSlideMigration.php
