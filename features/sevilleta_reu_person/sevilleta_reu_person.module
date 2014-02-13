@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Sevilleta Reu Person feature.
+ */
+
+include_once 'sevilleta_reu_person.features.inc';
