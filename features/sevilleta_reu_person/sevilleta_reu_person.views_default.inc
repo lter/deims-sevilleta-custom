@@ -86,7 +86,7 @@ function sevilleta_reu_person_views_default_views() {
   $handler->display->display_options['fields']['field_images']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_images']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_images']['settings'] = array(
-    'image_style' => 'thumbnail',
+    'image_style' => 'medium',
     'image_link' => '',
   );
   /* Field: Content: Title */
@@ -114,7 +114,7 @@ function sevilleta_reu_person_views_default_views() {
   $handler->display->display_options['fields']['field_reu_year']['label'] = '';
   $handler->display->display_options['fields']['field_reu_year']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_reu_year']['settings'] = array(
-    'thousand_separator' => ',',
+    'thousand_separator' => '',
     'prefix_suffix' => 1,
   );
   /* Sort criterion: Content: Year (field_reu_year) */

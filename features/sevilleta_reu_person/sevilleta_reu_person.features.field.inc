@@ -10,104 +10,6 @@
 function sevilleta_reu_person_field_default_fields() {
   $fields = array();
 
-  // Exported field: 'node-research_site-field_is_core_site'.
-  $fields['node-research_site-field_is_core_site'] = array(
-    'field_config' => array(
-      'active' => '1',
-      'cardinality' => '1',
-      'deleted' => '0',
-      'entity_types' => array(),
-      'field_name' => 'field_is_core_site',
-      'field_permissions' => array(
-        'type' => '1',
-      ),
-      'foreign keys' => array(),
-      'indexes' => array(
-        'value' => array(
-          0 => 'value',
-        ),
-      ),
-      'locked' => '0',
-      'module' => 'list',
-      'settings' => array(
-        'allowed_values' => array(
-          0 => 'FALSE',
-          1 => 'TRUE',
-        ),
-        'allowed_values_function' => '',
-      ),
-      'translatable' => '0',
-      'type' => 'list_boolean',
-    ),
-    'field_instance' => array(
-      'bundle' => 'research_site',
-      'default_value' => array(
-        0 => array(
-          'value' => 0,
-        ),
-      ),
-      'deleted' => '0',
-      'description' => '',
-      'display' => array(
-        'bdp' => array(
-          'label' => 'above',
-          'settings' => array(),
-          'type' => 'hidden',
-          'weight' => 0,
-        ),
-        'default' => array(
-          'label' => 'above',
-          'module' => 'list',
-          'settings' => array(),
-          'type' => 'list_default',
-          'weight' => '14',
-        ),
-        'eml' => array(
-          'label' => 'above',
-          'settings' => array(),
-          'type' => 'hidden',
-          'weight' => 0,
-        ),
-        'full' => array(
-          'label' => 'inline',
-          'module' => 'list',
-          'settings' => array(),
-          'type' => 'list_default',
-          'weight' => '4',
-        ),
-        'iso' => array(
-          'label' => 'above',
-          'settings' => array(),
-          'type' => 'hidden',
-          'weight' => 0,
-        ),
-        'teaser' => array(
-          'label' => 'above',
-          'settings' => array(),
-          'type' => 'hidden',
-          'weight' => '9',
-        ),
-      ),
-      'entity_type' => 'node',
-      'field_name' => 'field_is_core_site',
-      'label' => 'Is This a Core Site?',
-      'required' => 0,
-      'settings' => array(
-        'user_register_form' => FALSE,
-      ),
-      'widget' => array(
-        'active' => 1,
-        'module' => 'options',
-        'settings' => array(
-          'display_label' => 1,
-        ),
-        'type' => 'options_onoff',
-        'weight' => '2',
-      ),
-      'workbench_access_field' => 0,
-    ),
-  );
-
   // Exported field: 'node-reu-body'.
   $fields['node-reu-body'] = array(
     'field_config' => array(
@@ -244,12 +146,11 @@ function sevilleta_reu_person_field_default_fields() {
         ),
         'full' => array(
           'label' => 'hidden',
-          'module' => 'image',
+          'module' => 'file_entity',
           'settings' => array(
-            'image_link' => '',
-            'image_style' => 'medium',
+            'file_view_mode' => 'teaser',
           ),
-          'type' => 'image',
+          'type' => 'file_rendered',
           'weight' => '1',
         ),
         'teaser' => array(
@@ -658,8 +559,13 @@ Prof.',
         ),
         'full' => array(
           'label' => 'above',
-          'settings' => array(),
-          'type' => 'hidden',
+          'module' => 'token_formatters',
+          'settings' => array(
+            'check_access' => TRUE,
+            'link' => '[entity:url]',
+            'text' => '[entity:label]',
+          ),
+          'type' => 'token_formatters_entity_reference',
           'weight' => '9',
         ),
         'teaser' => array(
@@ -1100,9 +1006,9 @@ Prof.',
           'module' => 'number',
           'settings' => array(
             'decimal_separator' => '.',
-            'prefix_suffix' => TRUE,
+            'prefix_suffix' => 1,
             'scale' => 0,
-            'thousand_separator' => ' ',
+            'thousand_separator' => '',
           ),
           'type' => 'number_integer',
           'weight' => '6',
@@ -1141,7 +1047,6 @@ Prof.',
   t('Abstract');
   t('Bio');
   t('Home Institution');
-  t('Is This a Core Site?');
   t('Mentor');
   t('Name');
   t('Photo');

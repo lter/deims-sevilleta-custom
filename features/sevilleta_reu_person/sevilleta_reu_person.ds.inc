@@ -5,6 +5,30 @@
  */
 
 /**
+ * Implements hook_ds_field_settings_info().
+ */
+function sevilleta_reu_person_ds_field_settings_info() {
+  $export = array();
+
+  $ds_fieldsetting = new stdClass();
+  $ds_fieldsetting->api_version = 1;
+  $ds_fieldsetting->id = 'node|reu|full';
+  $ds_fieldsetting->entity_type = 'node';
+  $ds_fieldsetting->bundle = 'reu';
+  $ds_fieldsetting->view_mode = 'full';
+  $ds_fieldsetting->settings = array(
+    'field_images' => array(
+      'formatter_settings' => array(
+        'ft' => array(),
+      ),
+    ),
+  );
+  $export['node|reu|full'] = $ds_fieldsetting;
+
+  return $export;
+}
+
+/**
  * Implements hook_ds_layout_settings_info().
  */
 function sevilleta_reu_person_ds_layout_settings_info() {
@@ -31,6 +55,7 @@ function sevilleta_reu_person_ds_layout_settings_info() {
         1 => 'field_images',
         7 => 'field_reu_abstract',
         8 => 'field_reu_presentation',
+        9 => 'field_reu_data_set',
       ),
     ),
     'fields' => array(
@@ -43,6 +68,7 @@ function sevilleta_reu_person_ds_layout_settings_info() {
       'field_reu_year' => 'left',
       'field_reu_abstract' => 'right',
       'field_reu_presentation' => 'right',
+      'field_reu_data_set' => 'right',
     ),
     'classes' => array(),
     'wrappers' => array(
