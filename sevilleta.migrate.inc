@@ -24,6 +24,9 @@ function sevilleta_migrate_api() {
       'SevilletaContentSlide' => array(
         'class_name' => 'SevilletaContentSlideMigration',
       ),
+      'SevilletaContentREUPerson' => array(
+        'class_name' => 'SevilletaContentREUPersonMigration',
+      ),
       // Migrates the "SEV D6" taxonomy article" to the D7 "section" container.
       'SevilletaTaxonomyArticles' => array(
         'class_name' => 'DrupalTerm6Migration',
