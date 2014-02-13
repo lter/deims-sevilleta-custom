@@ -78,6 +78,10 @@ function sevilleta_reu_person_views_default_views() {
       'responsive' => '',
     ),
   );
+  /* Header: Global: Text area */
+  $handler->display->display_options['header']['area']['id'] = 'area';
+  $handler->display->display_options['header']['area']['table'] = 'views';
+  $handler->display->display_options['header']['area']['field'] = 'area';
   /* Field: Content: Images */
   $handler->display->display_options['fields']['field_images']['id'] = 'field_images';
   $handler->display->display_options['fields']['field_images']['table'] = 'field_data_field_images';
@@ -112,6 +116,7 @@ function sevilleta_reu_person_views_default_views() {
   $handler->display->display_options['fields']['field_reu_year']['table'] = 'field_data_field_reu_year';
   $handler->display->display_options['fields']['field_reu_year']['field'] = 'field_reu_year';
   $handler->display->display_options['fields']['field_reu_year']['label'] = '';
+  $handler->display->display_options['fields']['field_reu_year']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_reu_year']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_reu_year']['settings'] = array(
     'thousand_separator' => '',
@@ -209,6 +214,44 @@ function sevilleta_reu_person_views_default_views() {
     'Intern' => 'Intern',
   );
   $handler->display->display_options['path'] = 'reu/interns';
+
+  /* Display: REU Mentors */
+  $handler = $view->new_display('page', 'REU Mentors', 'page_3');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = 'Sevilleta REU Mentors';
+  $handler->display->display_options['defaults']['header'] = FALSE;
+  /* Header: Global: Text area */
+  $handler->display->display_options['header']['area']['id'] = 'area';
+  $handler->display->display_options['header']['area']['table'] = 'views';
+  $handler->display->display_options['header']['area']['field'] = 'area';
+  $handler->display->display_options['header']['area']['content'] = 'Senior project scientists with an established record of responsible mentorship have agreed to be mentors this year. Most mentors have considerable experience supervising research projects by REU students and have directed experimental projects by undergraduate students working for research credit during the academic year. We believe that the UNM faculty mentors, with their broad range of research interests and extensive mentoring experience, as well as their commitment to student success, offer students an outstanding opportunity to acquire experience and knowledge in ecology, the geosciences and meteorology.
+REU students will be given access to the research equipment and project vehicles of the faculty members who serve as their mentors. In the past, many faculty have also maintained an open door policy and have shared equipment with REU students working with other investigators.
+The application form requires that applicants list three mentors that they would be interested in working with. Please review the area of research and mentors websites below by clicking on their image and select three possible mentors from the list below. DO NOT contact the mentors until you have been accepted into the REU Program - if you have questions about the mentors please contact the program coordinator (reu2013@sevilleta.unm.edu).';
+  $handler->display->display_options['header']['area']['format'] = 'filtered_html';
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filter criterion: Content: Published */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: Content: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'reu' => 'reu',
+  );
+  /* Filter criterion: Content: Type (field_reu_type) */
+  $handler->display->display_options['filters']['field_reu_type_value']['id'] = 'field_reu_type_value';
+  $handler->display->display_options['filters']['field_reu_type_value']['table'] = 'field_data_field_reu_type';
+  $handler->display->display_options['filters']['field_reu_type_value']['field'] = 'field_reu_type_value';
+  $handler->display->display_options['filters']['field_reu_type_value']['value'] = array(
+    'Mentor' => 'Mentor',
+  );
+  $handler->display->display_options['path'] = 'reu/mentors';
   $export['reu_participants'] = $view;
 
   return $export;
