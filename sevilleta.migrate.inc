@@ -24,6 +24,9 @@ function sevilleta_migrate_api() {
       'SevilletaContentSlide' => array(
         'class_name' => 'SevilletaContentSlideMigration',
       ),
+      'SevilletaContentSpatialData' => array(
+        'class_name' => 'SevilletaContentSpatialDataMigration',
+      ),
       'SevilletaContentREUPerson' => array(
         'class_name' => 'SevilletaContentREUPersonMigration',
       ),
