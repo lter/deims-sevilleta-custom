@@ -95,3 +95,15 @@ and look for DEIMS Migrations
 
 For DEIMS help, visit the DEIMS project page at drupal.org, read the papers in databits.lternet.edu
 or contact us.
+
+Other notes on the migration:
+
+The biblio nodes (the citations, references, publication list) are imported using the export/import
+built-in the module.  Export the latest version in EndNote Tagged, and re-import that file.  Now,
+the connections DataSet-Biblios, etc are lost.  You need to reconstruct them either painstaikingly,
+or using some sort of sql query.  We now associate Authors with People using the new view, that solves
+part of it.
+
+The slideshow will require you to download two additional modules (views-slideshow and flexslider-views-
+slideshow). In addition, visit the "blocks" admin page, and mode the Views-slideshow block to the header
+area, perhaps configure to show only in the <front>.  
