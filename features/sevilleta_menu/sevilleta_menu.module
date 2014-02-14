@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Sevilleta Menu feature.
+ */
+
+include_once 'sevilleta_menu.features.inc';
