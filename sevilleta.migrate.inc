@@ -40,6 +40,15 @@ function sevilleta_migrate_api() {
         'source_vocabulary' => '3',
         'destination_vocabulary' => 'section',
       ),
+      'SevilletaTaxonomyDownloads' => array(
+         'class_name' => 'DrupalTerm6Migration',
+         'description' => "Taxonomy migration for the 'Downloads' vocabulary.",
+         'source_connection' => 'drupal6',
+         'source_version' => 6,
+      // @todo Make this vocabulary source ID automatic from the D6 database.
+         'source_vocabulary' => '2',
+         'destination_vocabulary' => 'downloads',
+       ),
       // this go into catgories
       'SevilletaTaxonomyCategories' => array(
         'class_name' => 'DrupalTerm6Migration',
