@@ -21,6 +21,11 @@ class SevilletaContentFAQMigration extends DrupalNode6Migration {
     $this->addFieldMapping('field_section:create_term')
       ->defaultValue(TRUE);
 
+    $this->addFieldMapping('field_section', '3')
+      ->sourceMigration('SevilletaTaxonomyArticles');
+    $this->addFieldMapping('field_section:source_type')
+      ->defaultValue('tid');
+
     $this->addUnmigratedSources(array(
       'field_detailed_questions',
     ));
