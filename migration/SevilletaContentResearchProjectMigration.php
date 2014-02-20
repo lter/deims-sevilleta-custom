@@ -16,32 +16,13 @@ class SevilletaContentResearchProjectMigration extends DeimsContentResearchProje
 /**
 *
 * DEST UNMIG
-* field_images:title	Subfield: String to be used as the title value
 * field_related_projects	Related projects (entityreference)  ENT REF TO ITSELF!
 * 
 * SOURCES
 * 
-* Each node has 2 figures: top and bottom,
-* corresponding to   _proj_figure and _project_photo
-* ALSO, a node has a strip of thumbnails _image, 
-* displayed on the left
+* Each node has 2 figure fields : top and bottom, corresponding to   _proj_figure and _project_photo
+* and a reference to a image field om a strip of thumbnails _image, displayed on the left, via a view.
 * 
-* field_research_project_photo:description Photos subfield
-* 
-* --need work:
-* 
-* -featurize
-*  field_research_project_sites	Research Sites NODE REF
-*  field_research_project_data	Related Data Set  
-* 
-* -prepare() or prepareRow()
-*  field_research_project_current	Ongoing
-*  field_research_projects	Related Projects   THIS is to SELF
-* 
-* -i dont know: dont migrate, concatenate, etc?
-*   field_research_project_sites_txt	Research Sites txt
-*   field_research_project_pi_txt	Investigators Text
-*   field_research_project_gallery	Gallery
 **/
 
   //related sites : depend on new content type and Research site migration
@@ -62,6 +43,14 @@ class SevilletaContentResearchProjectMigration extends DeimsContentResearchProje
    $this->addFieldMapping('field_images:file_class')->defaultValue('MigrateFileFid');
    $this->addFieldMapping('field_images:preserve_files')->defaultValue(TRUE);
 
+// side-photo migration
+   $this->addFieldMapping('field_rp_figures_side','field_side_images')
+     ->sourceMigration('DeimsFile')
+     ->description('Handled in prepareRow().');
+   $this->addFieldMapping('field_rp_figures_side:file_class')->defaultValue('MigrateFileFid');
+   $this->addFieldMapping('field_rp_figures_side:preserve_files')->defaultValue(TRUE);
+
+
   // bottom-photo migration, needs new featurized content type
    $this->addFieldMapping('field_image_bottom','field_research_proj_figure')
      ->sourceMigration('DeimsFile');
@@ -70,29 +59,8 @@ class SevilletaContentResearchProjectMigration extends DeimsContentResearchProje
    $this->addFieldMapping('field_image_bottom:file_class')->defaultValue('MigrateFileFid');
    $this->addFieldMapping('field_image_bottom:preserve_files')->defaultValue(TRUE);
 
-   //unsure whether this is OK.
-   $this->addFieldMapping('field_images:title','field_research_proj_photos_txt');
+//   $this->addFieldMapping('field_images:title','field_research_proj_photos_txt');
 
-/**
-*    THis is many to one.  Some examples are at
-*    https://drupal.org/comment/8386105#comment-8386105
-*    
-*    OR we featurize another field !!
-* 
-*    $this->addFieldMapping('field_images:title','field_research_proj_fig_txt');
-* 
-*    $this->addFieldMapping('field_images','field_research_proj_figure')
-*      ->sourceMigration('DeimsFile')
-*      ->description('Handled in prepareRow().');
-*    $this->addFieldMapping('field_images:file_class')->defaultValue('MigrateFileFid');
-*    $this->addFieldMapping('field_images:preserve_files')->defaultValue(TRUE);
-* 
-*     $this->addFieldMapping('field_images', 'field_images')
-*       ->sourceMigration('DeimsFile')
-*       ->description('Handled in prepareRow().');
-*     $this->addFieldMapping('field_images:file_class')->defaultValue('MigrateFileFid');
-*     $this->addFieldMapping('field_images:preserve_files')->defaultValue(TRUE);
-**/
 
     $this->addFieldMapping('field_ongoing', 'field_research_project_current')
       ->description('Text to Boolean Handled in prepareRow().');
@@ -100,7 +68,6 @@ class SevilletaContentResearchProjectMigration extends DeimsContentResearchProje
     // entityreference, people
     $this->addFieldMapping('field_related_people','field_research_project_invest')
       ->sourceMigration('DeimsContentPerson');
-
 
     // entity ref, projects   a 360 relation - this may have to be done manually.
     //          $this->addFieldMapping('field_related_projects','field_research_projects')
@@ -135,6 +102,20 @@ class SevilletaContentResearchProjectMigration extends DeimsContentResearchProje
 
   public function prepareRow($row) {
     parent::prepareRow($row);
+
+   // Find all the scientific images that are refered by this research project node.
+
+    $connection = Database::getConnection('default', $this->sourceConnection);
+    $query = $connection->select('node', 'n');
+    $query->join('node_revisions', 'nr', 'n.vid = nr.vid');
+    $query->condition('n.type', 'scientific_image');
+    $query->join('content_type_scientific_image', 'ctsi', 'n.vid = ctsi.vid');
+    $query->condition('ctsi.nid', $row->field_research_project_image);
+    $query->fields('ctsi', array('field_sci_image_fid'));
+    $results = $query->execute()->fetchCol();
+    if (!empty($results)) {
+      $row->field_side_images = $results;
+    }
 
     switch ($row->field_research_project_current) {
       case 'Yes':
