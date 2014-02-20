@@ -25,6 +25,7 @@ function deims_research_project_field_group_info() {
     'children' => array(
       0 => 'field_images',
       1 => 'field_image_bottom',
+      2 => 'field_rp_figures_side',
     ),
     'format_type' => 'htab',
     'format_settings' => array(

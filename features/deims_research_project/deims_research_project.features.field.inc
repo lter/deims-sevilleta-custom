@@ -20,6 +20,9 @@ function deims_research_project_field_default_fields() {
         0 => 'node',
       ),
       'field_name' => 'body',
+      'field_permissions' => array(
+        'type' => '0',
+      ),
       'foreign keys' => array(
         'format' => array(
           'columns' => array(
@@ -57,7 +60,7 @@ function deims_research_project_field_default_fields() {
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
-          'weight' => '3',
+          'weight' => '5',
         ),
         'teaser' => array(
           'label' => 'hidden',
@@ -135,7 +138,7 @@ function deims_research_project_field_default_fields() {
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
-          'weight' => '2',
+          'weight' => '4',
         ),
         'teaser' => array(
           'label' => 'hidden',
@@ -310,7 +313,7 @@ function deims_research_project_field_default_fields() {
             'image_style' => 'large',
           ),
           'type' => 'image',
-          'weight' => '4',
+          'weight' => '6',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -372,7 +375,7 @@ function deims_research_project_field_default_fields() {
   $fields['node-project-field_images'] = array(
     'field_config' => array(
       'active' => '1',
-      'cardinality' => '-1',
+      'cardinality' => '1',
       'deleted' => '0',
       'entity_types' => array(),
       'field_name' => 'field_images',
@@ -396,6 +399,7 @@ function deims_research_project_field_default_fields() {
       'module' => 'image',
       'settings' => array(
         'default_image' => 0,
+        'delete_on_parent_delete' => '',
         'uri_scheme' => 'public',
       ),
       'translatable' => '0',
@@ -424,7 +428,7 @@ function deims_research_project_field_default_fields() {
             'image_style' => 'large',
           ),
           'type' => 'image',
-          'weight' => '5',
+          'weight' => '3',
         ),
         'teaser' => array(
           'label' => 'hidden',
@@ -624,8 +628,8 @@ function deims_research_project_field_default_fields() {
           'label' => 'inline',
           'module' => 'list',
           'settings' => array(),
-          'type' => 'list_key',
-          'weight' => '9',
+          'type' => 'list_default',
+          'weight' => '10',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -702,7 +706,7 @@ function deims_research_project_field_default_fields() {
           'module' => 'link',
           'settings' => array(),
           'type' => 'link_default',
-          'weight' => '11',
+          'weight' => '12',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -740,7 +744,7 @@ function deims_research_project_field_default_fields() {
         'module' => 'link',
         'settings' => array(),
         'type' => 'link_field',
-        'weight' => '45',
+        'weight' => '48',
       ),
     ),
   );
@@ -813,7 +817,7 @@ function deims_research_project_field_default_fields() {
             'link' => 1,
           ),
           'type' => 'entityreference_label',
-          'weight' => '6',
+          'weight' => '7',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -917,7 +921,7 @@ function deims_research_project_field_default_fields() {
             'link' => FALSE,
           ),
           'type' => 'entityreference_label',
-          'weight' => '10',
+          'weight' => '11',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -943,7 +947,7 @@ function deims_research_project_field_default_fields() {
           'size' => '60',
         ),
         'type' => 'entityreference_autocomplete',
-        'weight' => '44',
+        'weight' => '47',
       ),
       'workbench_access_field' => 0,
     ),
@@ -1018,7 +1022,7 @@ function deims_research_project_field_default_fields() {
             'link' => 1,
           ),
           'type' => 'entityreference_label',
-          'weight' => '8',
+          'weight' => '9',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -1041,7 +1045,7 @@ function deims_research_project_field_default_fields() {
           'apply_chosen' => 0,
         ),
         'type' => 'options_select',
-        'weight' => '43',
+        'weight' => '46',
       ),
       'workbench_access_field' => 0,
     ),
@@ -1116,7 +1120,7 @@ function deims_research_project_field_default_fields() {
             'link' => 1,
           ),
           'type' => 'entityreference_label',
-          'weight' => '7',
+          'weight' => '8',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -1139,7 +1143,122 @@ function deims_research_project_field_default_fields() {
           'apply_chosen' => 0,
         ),
         'type' => 'options_select',
-        'weight' => '42',
+        'weight' => '45',
+      ),
+      'workbench_access_field' => 0,
+    ),
+  );
+
+  // Exported field: 'node-project-field_rp_figures_side'.
+  $fields['node-project-field_rp_figures_side'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '-1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'field_rp_figures_side',
+      'field_permissions' => array(
+        'type' => '0',
+      ),
+      'foreign keys' => array(
+        'fid' => array(
+          'columns' => array(
+            'fid' => 'fid',
+          ),
+          'table' => 'file_managed',
+        ),
+      ),
+      'indexes' => array(
+        'fid' => array(
+          0 => 'fid',
+        ),
+      ),
+      'locked' => '0',
+      'module' => 'image',
+      'settings' => array(
+        'default_image' => 0,
+        'delete_on_parent_delete' => '',
+        'uri_scheme' => 'public',
+      ),
+      'translatable' => '0',
+      'type' => 'image',
+    ),
+    'field_instance' => array(
+      'bundle' => 'project',
+      'deleted' => '0',
+      'description' => '',
+      'display' => array(
+        'default' => array(
+          'label' => 'above',
+          'module' => 'image',
+          'settings' => array(
+            'image_link' => '',
+            'image_style' => '',
+          ),
+          'type' => 'image',
+          'weight' => 12,
+        ),
+        'full' => array(
+          'label' => 'above',
+          'module' => 'file_entity',
+          'settings' => array(
+            'file_view_mode' => 'thumbs',
+          ),
+          'type' => 'file_rendered',
+          'weight' => '2',
+        ),
+        'teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+      ),
+      'ds_extras_field_template' => '',
+      'entity_type' => 'node',
+      'field_name' => 'field_rp_figures_side',
+      'label' => 'Figures Side',
+      'required' => 0,
+      'settings' => array(
+        'alt_field' => 0,
+        'default_image' => 0,
+        'file_directory' => '',
+        'file_extensions' => 'png gif jpg jpeg',
+        'max_filesize' => '',
+        'max_resolution' => '',
+        'min_resolution' => '',
+        'title_field' => 1,
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 1,
+        'module' => 'image',
+        'settings' => array(
+          'filefield_sources' => array(
+            'filefield_sources' => array(
+              'attach' => 'attach',
+              'clipboard' => 0,
+              'reference' => 0,
+              'remote' => 0,
+              'upload' => 'upload',
+            ),
+            'source_attach' => array(
+              'absolute' => '0',
+              'attach_mode' => 'copy',
+              'path' => 'public:',
+            ),
+            'source_imce' => array(
+              'imce_mode' => 0,
+            ),
+            'source_reference' => array(
+              'autocomplete' => '0',
+            ),
+          ),
+          'preview_image_style' => 'thumbnail',
+          'progress_indicator' => 'throbber',
+        ),
+        'type' => 'image_image',
+        'weight' => '35',
       ),
       'workbench_access_field' => 0,
     ),
@@ -1151,6 +1270,7 @@ function deims_research_project_field_default_fields() {
   t('Body');
   t('Core Areas');
   t('Figure near bottom');
+  t('Figures Side');
   t('Investigators');
   t('Keywords');
   t('Ongoing');
