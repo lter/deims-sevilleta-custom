@@ -1199,7 +1199,7 @@ function deims_research_project_field_default_fields() {
           'weight' => 12,
         ),
         'full' => array(
-          'label' => 'above',
+          'label' => 'hidden',
           'module' => 'file_entity',
           'settings' => array(
             'file_view_mode' => 'thumbs',

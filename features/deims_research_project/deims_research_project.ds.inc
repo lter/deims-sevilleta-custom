@@ -22,11 +22,6 @@ function deims_research_project_ds_field_settings_info() {
       'label' => 'inline',
       'format' => 'ds_time_ago',
     ),
-    'field_rp_figures_side' => array(
-      'formatter_settings' => array(
-        'ft' => array(),
-      ),
-    ),
   );
   $export['node|project|full'] = $ds_fieldsetting;
 
