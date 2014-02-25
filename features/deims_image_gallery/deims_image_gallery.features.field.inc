@@ -53,7 +53,7 @@ function deims_image_gallery_field_default_fields() {
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
-          'weight' => 0,
+          'weight' => '0',
         ),
         'teaser' => array(
           'label' => 'hidden',
@@ -127,14 +127,13 @@ function deims_image_gallery_field_default_fields() {
       'description' => 'Photos, graphs, figures related to research.',
       'display' => array(
         'default' => array(
-          'label' => 'above',
-          'module' => 'image',
+          'label' => 'hidden',
+          'module' => 'file_entity',
           'settings' => array(
-            'image_link' => '',
-            'image_style' => '',
+            'file_view_mode' => 'gallery_mode',
           ),
-          'type' => 'image',
-          'weight' => 1,
+          'type' => 'file_rendered',
+          'weight' => '1',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -242,7 +241,7 @@ function deims_image_gallery_field_default_fields() {
           'module' => 'taxonomy',
           'settings' => array(),
           'type' => 'taxonomy_term_reference_link',
-          'weight' => 2,
+          'weight' => '2',
         ),
         'teaser' => array(
           'label' => 'above',
