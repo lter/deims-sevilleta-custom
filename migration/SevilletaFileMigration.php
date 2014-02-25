@@ -22,13 +22,45 @@ class SevilletaFileMigration extends DeimsFileMigration {
     if ($result = $query->execute()->fetch()) {
       if (!empty($result->title)) {
         $file->filename = $result->title;
+        $file->field_file_image_title_text[LANGUAGE_NONE][0] = array('value' => strip_tags($result->title), 'format' => $this->mapFormat($result->format));
       }
       if (!empty($result->body)) {
-        $file->field_photo_caption[LANGUAGE_NONE][0] = array('value' => $result->body, 'format' => $this->mapFormat($result->format));
+        $file->field_photo_caption[LANGUAGE_NONE][0] = array('value' => strip_tags($result->body), 'format' => $this->mapFormat($result->format));
       }
       if ($result->photographer_person = $this->handleSourceMigration('DeimsContentPerson', $result->field_sci_image_author_nid)) {
         $file->field_related_people[LANGUAGE_NONE][0] = array('target_id' => $result->photographer_person);
       }
     }
+
+
+    // Add data for documents
+    //  with the row->fid, i need the NID of the download node.  with  that NID
+    // i need the old TID from term_node.  from there, using the handleSOURCEMIgration, i
+    // get the new tid.
+    $connection = Database::getConnection('default', $this->sourceConnection);
+
+    $query = $connection->select('node', 'n');
+
+    $query->condition('n.type', 'download');
+
+    $query->join('node_revisions', 'nr', 'n.vid = nr.vid');
+    $query->fields('nr', array('title'));
+
+    $query->join('content_type_download', 'ctd', 'n.vid = ctd.vid');
+
+    $query->condition('ctd.field_download_file_fid', $row->fid);
+
+    $query->join('term_node', 'tn', 'tn.vid = ctd.vid');
+    $query->fields('tn', array('tid'));
+
+    if ($result = $query->execute()->fetch()) {
+      if (!empty($result->title)) {
+        $file->filename = $result->title;
+      }
+      if ($result->newtid = $this->handleSourceMigration('SevilletaTaxonomyDownloads', $result->tid)) {
+        $file->field_download_keywords[LANGUAGE_NONE][0] = array('target_id' => $result->newtid);
+      }
+    }
+
   }
 }
