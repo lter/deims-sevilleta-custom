@@ -37,28 +37,23 @@ class SevilletaFileMigration extends DeimsFileMigration {
     //  with the row->fid, i need the NID of the download node.  with  that NID
     // i need the old TID from term_node.  from there, using the handleSOURCEMIgration, i
     // get the new tid.
+
     $connection = Database::getConnection('default', $this->sourceConnection);
-
     $query = $connection->select('node', 'n');
-
     $query->condition('n.type', 'download');
-
     $query->join('node_revisions', 'nr', 'n.vid = nr.vid');
     $query->fields('nr', array('title'));
-
     $query->join('content_type_download', 'ctd', 'n.vid = ctd.vid');
-
     $query->condition('ctd.field_download_file_fid', $row->fid);
-
     $query->join('term_node', 'tn', 'tn.vid = ctd.vid');
     $query->fields('tn', array('tid'));
 
     if ($result = $query->execute()->fetch()) {
       if (!empty($result->title)) {
         $file->filename = $result->title;
-      }
+      } 
       if ($result->newtid = $this->handleSourceMigration('SevilletaTaxonomyDownloads', $result->tid)) {
-        $file->field_download_keywords[LANGUAGE_NONE][0] = array('target_id' => $result->newtid);
+        $file->field_download_keywords[LANGUAGE_NONE][0] = array('tid' => $result->newtid );
       }
     }
 
