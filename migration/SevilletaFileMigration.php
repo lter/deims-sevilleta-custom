@@ -32,11 +32,7 @@ class SevilletaFileMigration extends DeimsFileMigration {
       }
     }
 
-
-    // Add data for documents
-    //  with the row->fid, i need the NID of the download node.  with  that NID
-    // i need the old TID from term_node.  from there, using the handleSOURCEMIgration, i
-    // get the new tid.
+    // Add data for documents from the CCT "Download"
 
     $connection = Database::getConnection('default', $this->sourceConnection);
     $query = $connection->select('node', 'n');
