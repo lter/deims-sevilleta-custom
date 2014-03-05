@@ -18,6 +18,9 @@ function sevilleta_migrate_api() {
       'SevilletaContentMetCentral' => array(
         'class_name' => 'SevilletaContentMetCentralMigration',
       ),
+      'SevilletaContentSectionCentral' => array(
+        'class_name' => 'SevilletaContentSectionMigration',
+      ),
       'SevilletaContentKeyFindings' => array(
         'class_name' => 'SevilletaContentKeyFindingsMigration',
       ),
