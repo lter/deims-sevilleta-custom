@@ -67,6 +67,7 @@ function deims_research_project_views_default_views() {
 
   /* Display: Current Projects */
   $handler = $view->new_display('page', 'Current Projects', 'page');
+  $handler->display->display_options['title'] = 'Current Research Projects';
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
   /* Filter criterion: Content: Published */
@@ -94,6 +95,7 @@ function deims_research_project_views_default_views() {
 
   /* Display: Completed Projects */
   $handler = $view->new_display('page', 'Completed Projects', 'page_1');
+  $handler->display->display_options['title'] = 'Complete Research Projects';
   $handler->display->display_options['path'] = 'projects_complete';
   $export['research_projects'] = $view;
 

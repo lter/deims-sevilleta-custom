@@ -59,11 +59,6 @@ If you prefer speed, use drush to enable the module(s). For example:
 Some other components are not installed by default using the method described below under the
 _instructions_ section. Here are additional instructions for these other components.
 
-### The Met-central view ### 
-This view is encoded in a php script 'met_central_view.php'. It can be found inside 
-the _views-export_ folder in this repository. Please use the _Views-UI_ to import the 
-php code posted in the script. 
-
 ### The Deims Theme CSS ###
 Inside the _miscellaneous_ tree needs to be moved to the corresponding place in
 your DEIMS install to warranty your slideshow functions correctly.  The Slideshow
