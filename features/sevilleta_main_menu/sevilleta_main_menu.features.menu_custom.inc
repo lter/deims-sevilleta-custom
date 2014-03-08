@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * sevilleta_menu.features.menu_custom.inc
+ * sevilleta_main_menu.features.menu_custom.inc
  */
 
 /**
  * Implements hook_menu_default_menu_custom().
  */
-function sevilleta_menu_menu_default_menu_custom() {
+function sevilleta_main_menu_menu_default_menu_custom() {
   $menus = array();
 
   // Exported menu: main-menu.
