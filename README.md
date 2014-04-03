@@ -101,7 +101,7 @@ part of it.
 
 The slideshow will require you to download two additional modules (views-slideshow and flexslider-views-
 slideshow). In addition, visit the "blocks" admin page, and mode the Views-slideshow block to the header
-area, perhaps configure to show only in the <front>.  
+area, perhaps configure to show only in the _frontpage_ .  
 
 The order of the migration is important. In general, migrate first items with no dependencies, and 
 finish with those types that have the most dependencies.  You want to migrate the Organizations and 
