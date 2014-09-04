@@ -22,27 +22,21 @@ class SevilletaContentSpatialDataMigration extends DrupalNode6Migration {
     parent::__construct($arguments);
 
     $this->addFieldMapping('field_spatialdata_kml_file', 'field_spatialdata_kml')
-      ->sourceMigration('DeimsFile')
-      ->arguments(array(
-          'file_class' => 'MigrateFileFid',
-          'preserve_files' => TRUE,
-      ));
+      ->sourceMigration('DeimsFile');
+    $this->addFieldMapping('field_spatialdata_kml_file:file_class')->defaultValue('MigrateFileFid');
+    $this->addFieldMapping('field_spatialdata_kml_file:preserve_files')->defaultValue(TRUE);
 
     $this->addFieldMapping('field_spatialdata_metadata_file', 'field_spatialdata_metadata')
-      ->sourceMigration('DeimsFile')
-      ->arguments(array(
-          'file_class' => 'MigrateFileFid',
-          'preserve_files' => TRUE,
-      ));
+      ->sourceMigration('DeimsFile');
+    $this->addFieldMapping('field_spatialdata_metadata_file:file_class')->defaultValue('MigrateFileFid');
+    $this->addFieldMapping('field_spatialdata_metadata_file:preserve_files')->defaultValue(TRUE);  
 
 
     $this->addFieldMapping('field_spatialdata_shapefile_file', 'field_spatialdata_shapefile')
-      ->sourceMigration('DeimsFile')
-      ->arguments(array(
-          'file_class' => 'MigrateFileFid',
-          'preserve_files' => TRUE,
-      ));
-
+      ->sourceMigration('DeimsFile');
+    $this->addFieldMapping('field_spatialdata_shapefile_file:file_class')->defaultValue('MigrateFileFid');
+    $this->addFieldMapping('field_spatialdata_shapefile_file:preserve_files')->defaultValue(TRUE);  
+      
 
     $this->addFieldMapping('field_spatialdata_keywords', '11')
        ->sourceMigration('SevilletaTaxonomySpatialData');
