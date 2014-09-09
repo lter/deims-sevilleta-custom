@@ -17,7 +17,7 @@ class SevilletaContentOrganizationMigration extends DeimsContentOrganizationMigr
     $query->fields('ctp', array('nid', 'field_person_organization_title', 'field_person_organization_url'));
     $query->condition('ctp.field_person_organization_title', '', '<>');
     $query->groupBy('field_person_organization_title');
-    $this->source = new MigrateSourceSQL($query);
+    $this->source = new MigrateSourceSQL($query, array(), NULL, array('map_joinable' => FALSE));
 
     // Remap the organization title to the link field's title value.
     $this->removeFieldMapping('title');
