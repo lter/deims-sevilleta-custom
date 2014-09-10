@@ -1,0 +1,2 @@
+This css should replace the same css in the same location under your DRUPAL Root.  
+The tweak seems to fix the exposed filters position missmatch in the Data view.
