@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Sevilleta Documents feature.
+ */
+
+include_once 'sevilleta_documents.features.inc';

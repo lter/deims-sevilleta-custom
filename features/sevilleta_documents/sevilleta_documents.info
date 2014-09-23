@@ -1,0 +1,12 @@
+name = Sevilleta Documents
+description = Sevilleta Documents are tagged, so they can be classified accordingly
+core = 7.x
+package = SEV Features
+dependencies[] = ctools
+dependencies[] = features
+dependencies[] = options
+dependencies[] = strongarm
+features[ctools][] = strongarm:strongarm:1
+features[features_api][] = api:1
+features[field][] = file-document-field_download_keywords
+features[variable][] = field_bundle_settings_file__document
