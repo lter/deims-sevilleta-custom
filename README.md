@@ -28,8 +28,9 @@ After you enabled the Sevilleta module, a few new vocabularies will be created, 
 
 The terms for these will be migrated by the corresponding migrations.
 
+The terms for downloads, categories and spatial data could have been fitted in the "section" vocabulary, as this is meant to classify assets, but OK. We only merged the 'articles' vocab. into the section vocab, strictly speaking is as if we renamed the articles vocabulary into the 'section' vocabulary.
+
 Before you do any migration, make sure your Sev. field customizations are appropriate,
 namely, also, the field 'photo caption' is long text type and not just text. 
 
-We are merging somethings into the "Section" vocabulary.  In fact, the terms for downloads, categories and spatial data could have been fitted in the "section" vocabulary, as this is meant to classify assets, but OK. We only merged the 'articles' vocab. into the section vocab, strictly speaking is as if we renamed the articles vocabulary into the 'section' vocabulary.
 
