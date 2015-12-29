@@ -53,5 +53,8 @@ class SevilletaFileMigration extends DeimsFileMigration {
       }
     }
 
+    //on newer (2015) versions of contrib/core, need this to make it work.  perhahps could workd w/o hack.
+    $file->value = 'public://' . str_replace("sites/default/files/","",$file->value);
+
   }
 }
