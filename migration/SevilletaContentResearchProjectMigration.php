@@ -87,7 +87,24 @@ class SevilletaContentResearchProjectMigration extends DeimsContentResearchProje
     $this->addFieldMapping('field_keywords:source_type')
       ->defaultValue('tid');
 
+    $this->addUnmigratedSources(array(
+      'revision',
+      'log',
+      'revision_uid',
+      'field_research_proj_figure:list',
+      'field_research_project_links:attributes',
+      'upload',
+      'upload:description',
+      'upload:list',
+      'upload:weight',
+      'field_research_project_photo:list',
+      'field_research_project_photo:description',
+      'field_research_project_sites_txt',
+      'field_research_project_pi_txt',
+    ));
+
     $this->addUnmigratedDestinations(array(
+      'field_abstract:language',
       'field_images:language',
       'field_images:destination_dir',
       'field_images:destination_file',
@@ -95,8 +112,20 @@ class SevilletaContentResearchProjectMigration extends DeimsContentResearchProje
       'field_images:source_dir',
       'field_images:urlencode',
       'field_images:alt',
+      'field_images:title',
+      'field_core_areas:create_term',
+      'field_core_areas:ignore_case',
       'field_keywords:create_term',
       'field_keywords:ignore_case',
+      'field_related_links:attributes',
+      'field_related_links:language',
+      'field_related_projects',   // chicken and egg problem self-ref
+      'field_image_bottom:alt',
+      'field_image_bottom:title',
+      'field_image_bottom:language',
+      'field_rp_figures_side:alt',
+      'field_rp_figures_side:title',
+      'field_rp_figures_side:language',
     ));
   }
 
